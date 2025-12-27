@@ -1,0 +1,833 @@
+\documentclass[12pt,letterpaper]{article}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND CONFIGURATION
+%----------------------------------------------------------------------------------------
+\usepackage{setspace}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage[american]{babel}
+\usepackage{csquotes}
+
+% --- BIBLIOGRAPHY: Chicago Style (Author-Date) ---
+\usepackage[authordate,backend=biber]{biblatex-chicago}
+\addbibresource{main.bib}
+
+% Formatting and Visuals
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs} 
+\usepackage{caption}
+\usepackage{array} 
+\usepackage{float} % Allows [H] to strictly fix table placement
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{indentfirst}
+\usepackage{enumitem} 
+
+% --- FONTS ---
+% Standard LaTeX font (Computer Modern) is active. 
+% Uncomment the line below if you prefer Times New Roman (Standard for Econ Theses).
+% \usepackage{mathptmx} 
+
+% Theorem environments
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{definition}{Definition}[section]
+
+% Custom commands for notation consistency
+\newcommand{\SMaj}{S^{M}}
+\newcommand{\SMin}{S^{m}}
+
+% Define command for boxing and underlining results in tables
+\newcommand{\boxres}[1]{\fbox{#1}}
+\newcommand{\underres}[1]{\underline{#1}}
+
+% Setting 1.5 spacing
+\onehalfspacing
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+\centering
+\vspace*{1cm}
+\textbf{\Large Shanghai Mechanism with Minority Allotments}
+
+\vspace{2cm}
+
+Xingming Li
+
+\vspace{2cm}
+
+A Thesis in the Department of Economics
+
+\vspace{2cm}
+
+Presented in Partial Fulfillment of the Requirements\\
+for the Degree of Master of Arts (Economics) at\\
+Concordia University\\
+Montréal, Québec, Canada
+
+\vspace{3cm}
+
+August 2025
+
+\vspace{2cm}
+
+\copyright\ Xingming Li, 2025
+\end{titlepage}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	CERTIFICATION PAGE
+%----------------------------------------------------------------------------------------
+
+\pagenumbering{roman}
+\begin{center}
+\textbf{CONCORDIA UNIVERSITY\\
+School of Graduate Studies}
+\end{center}
+\vspace{1cm}
+
+This is to certify that the thesis prepared
+\vspace{0.5cm}
+
+\begin{flushleft}
+\begin{tabular}{@{}ll@{}}
+By: & Xingming Li\\
+\\
+Entitled: & Shanghai Mechanism with Minority Allotments\\
+\end{tabular}
+\end{flushleft}
+\vspace{0.5cm}
+
+and submitted in partial fulfillment of the requirements for the degree of
+\begin{center}
+\textbf{Master of Arts (Economics)}
+\end{center}
+complies with the regulations of the University and meets the accepted standards with respect to originality and quality.
+\vspace{1cm}
+
+Signed by the final Examining Committee:
+\vspace{1cm}
+
+\hspace{3cm}\rule{6cm}{0.15mm} Examiner
+
+\hspace{3.1cm}Dr. [Name of Examiner]
+\vspace{1cm}
+
+\hspace{3cm}\rule{6cm}{0.15mm} Supervisor
+
+\hspace{3.1cm}Dr. [Name of Supervisor]
+\vspace{1cm}
+
+Approved by: \rule{6cm}{0.15mm}
+
+\hspace{2.7cm}Dr. Christian Sigouin
+
+\hspace{2.7cm}Graduate Program Director
+\vspace{1cm}
+
+Date: \rule{3cm}{0.15mm} \hspace{2cm}\rule{6cm}{0.15mm}
+
+\hspace{7cm}Dr. Pascale Sicotte, Dean
+
+\hspace{7cm}Faculty of Arts and Science
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+\begin{center}
+\textbf{\large ABSTRACT}
+\vspace{0.5cm}
+
+\textbf{Shanghai Mechanism with Minority Allotments}
+\vspace{0.3cm}
+
+Xingming Li
+\end{center}
+\vspace{0.5cm}
+
+\noindent
+This thesis analyzes the properties of affirmative action policies (AAPs) under the Shanghai Mechanism, a parallel admission system intermediate between Deferred Acceptance (DA) and Immediate Acceptance (IA). We employ a formal model to evaluate the Shanghai Mechanism under stylized quota-based and reserve-based AAPs. The analysis reveals several shortcomings. The mechanism fails to satisfy minimal responsiveness under both implementations, meaning stronger AAPs can harm minority students. It violates Affirmative Action fairness and within-minority fairness due to irreversible, round-based assignments, allowing lower-priority students to preempt higher-priority peers based on the choice band of their application. Consequently, the mechanism is manipulable by all students. Furthermore, we identify a trade-off: the reserve implementation is non-wasteful but fails to respect the AAP, while the quota implementation respects the AAP but is wasteful. These results indicate that parallel mechanisms introduce new structural trade-offs related to the multi-round structure rather than resolving the inherent tensions in affirmative action design.
+
+\newpage
+\tableofcontents
+\newpage
+
+\pagenumbering{arabic}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 1: INTRODUCTION
+%----------------------------------------------------------------------------------------
+\section{Introduction}
+
+The design of school admission mechanisms is a critical application of market design theory. These mechanisms directly affect educational opportunities globally. Effective designs aim to balance efficiency, fairness, and simplicity. This challenge increases when policymakers introduce affirmative action policies (AAPs) to promote diversity and address historical inequities.
+
+Theoretical research favors strategy-proof mechanisms like Deferred Acceptance (DA) over manipulable alternatives such as Immediate Acceptance (IA). However, introducing AAPs creates tension with these design principles. Recent studies identify ``perverse responsiveness.'' This phenomenon occurs when strengthening AAPs unintentionally harms the minority students they are intended to benefit \parencite[e.g.,][]{kojima2012school}. This finding has significant implications for educational equity debates.
+
+China's approach to educational diversity offers an important and understudied case. With a large ethnic minority population, China implements extensive AAPs in its college admissions system following the national \textit{gaokao} examination. These policies usually involve bonus points added to exam scores or, less commonly, regional admission quotas. Unlike many countries that use canonical mechanisms, China employs a family of Application-Rejection Parallel Mechanisms. These mechanisms occupy a theoretical middle ground between DA and IA. The Shanghai Mechanism is a key example. It allows students to submit preferences for two schools simultaneously within a round before assignments are finalized. This intermediate approach is used in one of the world's largest admissions systems.
+
+Despite extensive literature analyzing AAPs under canonical mechanisms, their interaction with parallel processing systems is largely unexplored. This gap is significant. Parallel mechanisms are designed to reduce strategic manipulation while maintaining certain efficiency properties. It is unclear whether these intermediate designs resolve the tensions between affirmative action and mechanism performance, or if they simply redistribute these tensions.
+
+Furthermore, China primarily uses score adjustments for affirmative action. Understanding how alternative implementations—such as quotas and reserves—function within its unique parallel mechanisms is crucial. This understanding is necessary for evaluating potential policy reforms and analyzing the mechanisms themselves. This thesis addresses this gap by providing a theoretical analysis of AAPs within the Shanghai Mechanism. We examine how stylized implementations of quota-based and reserve-based affirmative action interact with the mechanism's parallel structure. We recognize these models are simplifications of the current point-based system. This theoretical approach allows for direct comparison with the established literature on AAPs in DA and IA.
+
+The analysis reveals several key findings. The Shanghai Mechanism fails to achieve minimal responsiveness under either quota or reserve implementations. It also demonstrates violations of within-minority fairness specific to its parallel processing approach. Additionally, the mechanism is susceptible to strategic manipulation by both majority and minority students. These findings suggest that intermediate mechanism designs do not resolve the fundamental tensions between AAPs and mechanism performance. Instead, they create new trade-offs related to the sequential finalization of assignments.
+
+This research makes three contributions. First, it extends the theoretical understanding of affirmative action beyond canonical mechanisms to parallel processing systems. Second, it identifies fairness violations and strategic vulnerabilities specific to mechanisms that finalize assignments in rounds rather than continuously. Third, it provides theoretical insights relevant to the ongoing discussion of educational equity in China and other regions considering similar admission systems.
+
+The thesis proceeds as follows. Section 2 reviews the relevant literature. Section 3 establishes the formal model and mechanism descriptions. Section 4 analyzes welfare properties, focusing on minimal responsiveness. Section 5 examines fairness properties, particularly Affirmative Action fairness and within-group equity. Section 6 investigates strategy-proofness for both majority and minority students. Section 7 concludes with a discussion of the study's limitations, policy implications, and directions for future research.
+
+%----------------------------------------------------------------------------------------
+%	SECTION 2: LITERATURE REVIEW
+%----------------------------------------------------------------------------------------
+\section{Literature Review}
+
+This literature review synthesizes major issues and solutions in market design for school admissions, presented chronologically. It identifies flaws in the Boston Mechanism (Immediate Acceptance, IA) and explores strategy-proof alternatives like Deferred Acceptance (DA) and Top-Trading Cycles (TTC). The review then addresses the unintended consequences of Affirmative Action Policies (AAPs), including the development of minority reserves. Finally, it focuses on Chinese college admissions and its unique parallel mechanisms, identifying a research gap regarding AAPs within these systems.
+
+The design of school admission systems is central to market design. Foundational work by \textcite{abdulkadirouglu2003school} highlights flaws in mechanisms such as the Boston Mechanism (IA). The primary issue with IA is that it incentivizes students to misrepresent their preferences to secure better placements. Experimental evidence from \textcite{chen2006school} confirms that IA leads to significantly more strategic manipulation compared to DA and TTC. This often harms students who report preferences truthfully \parencite{pathak2008leveling}.
+
+Two main alternatives address IA's manipulability: \textcite{gale1962college}'s DA and \textcite{shapley1974cores}'s TTC. Following these insights, \textcite{abdulkadirouglu2005boston} report that Boston Public Schools replaced IA with DA and TTC, improving outcomes. Both DA and TTC are strategy-proof, meaning students have no incentive to misrepresent their preferences. However, \textcite{shapley1974cores}'s TTC is one specific type of mechanism within a larger class of hierarchical exchange rules applicable to school choice.\footnote{ For a broader understanding of this class, one should refer to \textcite{papai2000strategyproof} and \textcite{abdulkadirouglu2003school}.}
+
+While AAPs aim to improve equity, they can have unintended negative consequences. \textcite{kojima2012school} demonstrates through impossibility theorems that under DA and TTC, stable mechanisms may not respect the ``spirit'' of Affirmative Action. This can potentially harm the minority groups they intend to benefit. This concept is called ``minimal responsiveness'' by \textcite{dougan2016responsive}. Doğan's concept is essentially the same as \textcite{kojima2012school}'s but applied to reserves. Minimal responsiveness requires that stronger AAPs should not make the minority group Pareto inferior.
+
+To address these concerns, \textcite{hafalir2013effective} proposes minority reserves as an alternative to the majority quotas analyzed in studies such as \textcite{klijn2016affirmative}. Majority quotas can lead to wastefulness by strictly limiting majority admissions, potentially leaving seats unfilled. Minority reserves prioritize minority students for a set number of seats. However, they allow unclaimed reserved seats to be filled by majority students, avoiding this inefficiency. \textcite{hafalir2013effective} finds that DA with minority reserves Pareto dominates DA with majority quotas. Furthermore, it is never Pareto dominated by a system without affirmative action, mitigating the issues raised by \textcite{kojima2012school}.
+
+The responsiveness of different mechanisms to AAPs has been examined more broadly. \textcite{afacan2016affirmative} shows that IA is not responsive to quota-based AAPs but can be responsive to reserve-based policies. However, these positive results diminish when strategic behavior is considered. \textcite{chen2022comparison} clarifies that DA can be responsive to both quota-based and reserve-based AAPs under specific priority structures. TTC requires more restrictive conditions for responsiveness.
+
+The existing research focuses primarily on the canonical IA, DA, and TTC mechanisms. However, China's college admissions system presents a different environment. \textcite{chen2017chinese} analyze the family of Application-Rejection Parallel Mechanisms (PA) used in China. This family should also be considered within the broader framework of preference rank partitioned rules discussed by \textcite{ayoade2023school}. These mechanisms feature a flexible configuration. IA and DA are extreme cases, and various Chinese mechanisms are intermediate cases. For example, the Shanghai Mechanism allows students to submit preferences for two schools in parallel within a round. This design enables students to adopt ``insurance strategies'' by listing safer options alongside more desirable choices. Research shows that as the choice band increases, these mechanisms become less manipulable and more stable. Experimental results by \textcite{chen2019chinese} support these theoretical predictions.
+
+The primary reference for the theoretical framework of this thesis is \textcite{chaudhury2025affirmative}. This thesis adopts the axiomatic approach and specific axioms developed in their work, which is the study most closely related to the analysis presented here. \textcite{chaudhury2025affirmative} establish a comprehensive set of axioms---specifically non-wastefulness, respecting the affirmative action policy, and minimal responsiveness---for evaluating fairness and welfare in the context of school choice with affirmative action. They demonstrate that standard mechanisms often fail these axioms and propose a new mechanism that satisfies them by issuing immediate acceptances for minority reserve seats while using deferred acceptance for others.
+
+While the literature has extensively examined AAPs under standard mechanisms, their impact within these intermediate parallel systems has not been studied before this paper. Consequently, the impact of the Shanghai Mechanism on quota-based and reserve-based affirmative action policies remains unexplored. This raises important questions about potential unintended consequences for targeted groups. Understanding how AAPs interact with the Shanghai Mechanism is crucial, given its position as a middle ground between IA and DA and its operation within one of the world's largest admissions systems.
+
+%----------------------------------------------------------------------------------------
+%	SECTION 3: MODEL
+%----------------------------------------------------------------------------------------
+\section{Model}
+
+The model setup is based on the framework established by \textcite{kojima2012school}, while the axiomatic approach and welfare analysis adopted in this thesis follow \textcite{chaudhury2025affirmative}. A market consists of a set of students $S = \SMaj \cup \SMin$, partitioned into majority ($\SMaj$) and minority ($\SMin$) groups. It also includes a set of schools $C$, a preference profile $p = (p_s)_{s \in S}$, and a priority profile $\succ = (\succ_c)_{c \in C}$.
+
+Each student $s \in S$ has strict preferences $p_s$ over schools in $C \cup \{\varnothing\}$, where $\varnothing$ represents remaining unmatched. We write $c' p_s c$ to indicate that student $s$ strictly prefers school $c'$ over $c$. Let $R_s$ denote the weak preference relation induced by $p_s$, such that $c' R_s c$ if $c' p_s c$ or $c' = c$.
+
+Each school $c \in C$ has a strict priority ordering $\succ_c$ over students. $s' \succ_c s$ means student $s'$ has higher priority than $s$ at school $c$.
+
+We define the physical and policy constraints of the schools separately:
+\begin{itemize}
+    \item \textbf{Capacity Profile} $q = (q_c)_{c \in C}$: Each school $c$ has a total capacity $q_c \in \mathbb{N}$ ($q_c \geq 1$).
+    \item \textbf{Affirmative Action Profile} $v = (v_c)_{c \in C}$: Each school $c$ has a \textbf{minority allotment} $v_c \in \mathbb{N}$ ($0 \leq v_c \leq q_c$).
+\end{itemize}
+
+The minority allotment $v_c$ represents the quantitative commitment to affirmative action. Its interpretation depends on the policy implementation:
+\begin{itemize}[leftmargin=*]
+    \item Under a \textbf{majority quota} policy, $v_c = q_c - q^{M}_c$, where $q^{M}_c$ is the maximum number of majority students allowed. Here, $v_c$ represents seats that are \textit{explicitly} protected from majority students.
+    \item Under a \textbf{minority reserve} policy, $v_c = r_c$, where $r_c$ is the number of seats for which minority students are prioritized. Reserves are more flexible than quotas; if unfilled by minority students, these seats may be allocated to majority students.
+\end{itemize}
+
+A \textbf{matching} $\mu: S \rightarrow C \cup \{\varnothing\}$ assigns each student to at most one school, satisfying capacity constraints such that $|\mu(c)| \leq q_c$ for all $c \in C$. We use the following notation:
+\begin{itemize}[leftmargin=*]
+    \item $\mu(c) := \{s \in S : \mu(s) = c\}$ is the set of students assigned to $c$.
+    \item $\mu^{m}(c) := \{s \in \SMin : \mu(s) = c\}$ denotes minority students assigned to $c$.
+    \item $\mu^{M}(c) := \{s \in \SMaj : \mu(s) = c\}$ denotes majority students assigned to $c$.
+\end{itemize}
+
+Let $\mathcal{M}$ be the set of all feasible matchings. A \textbf{mechanism} $\phi: p \times \succ \times q \times v \rightarrow \mathcal{M}$ maps each market to a matching. We denote $\phi_s(p, \succ)$ as student $s$'s assignment.
+
+\subsection{Properties of Mechanisms}
+
+We define several standard properties of matching mechanisms.
+
+\begin{definition}[Individual Rationality]
+A mechanism $\phi$ is \textbf{individually rational} if every student is assigned to a school they find acceptable. Formally, for all $(p, \succ)$ and all $s \in S$: $\phi_s(p, \succ) R_s \varnothing$.
+\end{definition}
+
+\begin{definition}[Pareto Efficiency]
+A matching $\mu$ \textbf{Pareto-dominates} matching $\nu$ if every student weakly prefers their assignment in $\mu$ to their assignment in $\nu$ ($\mu(s) R_s \nu(s)$ for all $s$), and at least one student strictly prefers their assignment in $\mu$. A mechanism is \textbf{Pareto-efficient} if it always produces a Pareto-efficient matching.
+\end{definition}
+
+\begin{definition}[Pareto Inferiority]
+A matching $\mu$ is \textbf{Pareto inferior} for a group of students $T \subseteq S$ compared to matching $\nu$ if everyone in $T$ weakly prefers $\nu$ to $\mu$, and at least one person in $T$ strictly prefers $\nu$.
+\end{definition}
+
+\begin{definition}[Fairness (Stability)]
+A student $s$ has \textbf{justified envy} at school $c$ in matching $\mu$ if $s$ prefers $c$ to her assignment, and $c$ is assigned to a lower-priority student $s'$. Formally, if there exists $s' \in S$ such that $c p_s \mu(s)$, $\mu(s') = c$, and $s \succ_c s'$. A matching is \textbf{fair} if there is no justified envy.
+\end{definition}
+
+\begin{definition}[Strategy-proofness]
+A mechanism $\phi$ is \textbf{strategy-proof} if no student can ever benefit by misrepresenting their preferences. Formally, for all $s \in S$, all $(p, \succ)$, and all deviations $p'_s$:
+$$\phi_s(p, \succ) R_s \phi_s((p'_s, p_{-s}), \succ)$$
+\end{definition}
+
+\subsection{The Shanghai Mechanism with Minority Allotments}
+
+The Shanghai Mechanism, theoretically analyzed by \textcite{chen2017chinese}, belongs to the Application-Rejection Parallel Mechanism family. It is an intermediate design between IA and DA. It operates iteratively in rounds. In each round, it processes the next two ranks of students' preferences (a choice band of $e=2$). Assignments are \textit{finalized} at the end of each round, meaning a student matched in Round $t$ cannot be displaced in Round $t+1$.
+
+\subsubsection{Shanghai Mechanism with Minority Reserves}
+
+The mechanism operates in rounds $t \in \{0, 1, 2, \ldots\}$. Let $r_c$ denote the minority reserve at school $c$.
+
+\noindent\textbf{Round $t$:}
+\begin{description}
+    \item[Step 1: Application.] Consider all students unassigned from previous rounds. Each student $s$ proposes to their highest-ranked acceptable school among their $(2t+1)$-th and $(2t+2)$-th choices.
+    
+    \item[Step 2: Deferred Acceptance (DA) Sub-process.] We run the Student-Proposing DA algorithm on the proposals within this round:
+    \begin{itemize}
+        \item \textit{DA Step 1:} Each school $c$ considers its new proposals. It tentatively holds applicants up to its remaining capacity $q_c$. The selection respects the minority reserve:
+        \begin{enumerate}
+            \item First, valid minority applicants are selected up to $r_c$ based on priority $\succ_c$.
+            \item Second, remaining seats are filled by the highest-priority applicants (majority or minority) from the remaining pool.
+        \end{enumerate}
+        Any applicant not held is rejected.
+        
+        \item \textit{DA Step k:} Each student rejected in the previous step proposes to their next highest-ranked school \textit{within the current choice band} (ranks $2t+1$ and $2t+2$). Schools consider the new proposals together with the students tentatively held. They update their held set using the same reserve-priority logic.
+        
+        \item \textit{Termination:} The sub-process stops when no rejections occur or all rejected students have exhausted their choices in the current band.
+    \end{itemize}
+    
+    \item[Step 3: Finalization.] The tentative assignments become \textbf{permanent}. Assigned students and filled seats are removed from the system. Unassigned students proceed to Round $t+1$.
+\end{description}
+
+The mechanism terminates globally when all students are assigned or have exhausted their preference lists.
+
+\subsubsection{Shanghai Mechanism with Majority Quotas}
+
+This variant follows the same round structure but enforces hard limits on majority admissions.
+
+\noindent\textbf{Round $t$:}
+The process mirrors the reserve implementation, but the School Choice logic in the DA sub-process is modified to enforce quotas:
+
+\begin{description}
+    \item[Step 2: DA with Quotas.] Each school $c$ considers all current applicants (new and held). It tentatively holds students strictly according to priority $\succ_c$, subject to two constraints:
+    \begin{enumerate}
+        \item Total students held cannot exceed $q_c$.
+        \item Total majority students held cannot exceed $q^{M}_c$.
+    \end{enumerate}
+    If a majority student would exceed the quota $q^{M}_c$, they are rejected regardless of priority (unless they displace a lower-priority majority student). Unlike reserves, seats protected by the quota ($v_c$) cannot be filled by majority students even if they remain empty.
+\end{description}
+
+\subsubsection{Illustrative Example}
+
+To clarify the mechanics of the parallel rounds and the impact of affirmative action, consider a market with three students $S = \{M_1, M_2, m_1\}$ and two schools $C = \{c_1, c_2\}$. $M_1$ and $M_2$ are majority students, while $m_1$ is a minority student. Both schools have a capacity of 1 ($q=1$). We implement a \textbf{minority reserve} at school $c_1$ with $r_{c1}=1$. Note that with unit capacity, this is equivalent to a minority quota where no majority students can be admitted unless the reserve is unfilled, or a majority quota of $q^M_{c1}=0$. For an illustration of the mechanism under majority quotas, refer to the example provided in the proof of Proposition \ref{prop:quota-not-responsive}.
+
+\begin{table}[H]
+    \centering
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \caption{Priority Profile $\succ$}
+        \begin{tabular}{cc}
+        \toprule
+        $\succ_{c_1}$ & $\succ_{c_2}$ \\
+        \midrule
+        $M_1$ & $M_2$ \\
+        $M_2$ & $m_1$ \\
+        $m_1$ & $M_1$ \\
+        \bottomrule
+        \end{tabular}
+    \end{minipage}
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \caption{Preference Profile $p$}
+        \begin{tabular}{ccc}
+        \toprule
+        $p_{M_1}$ & $p_{M_2}$ & $p_{m_1}$ \\
+        \midrule
+        $c_1$ & $c_1$ & \boxres{$c_1$} \\
+        $c_2$ & \boxres{$c_2$} & $c_2$ \\
+        \hline 
+        $\varnothing$ & $\varnothing$ & $\varnothing$ \\
+        \bottomrule
+        \end{tabular}
+    \end{minipage}
+\end{table}
+
+In Round 0, the mechanism processes preferences in the first choice band (Ranks 1 and 2). All three students ($M_1, M_2, m_1$) propose to their first choice, $c_1$. Although $M_1$ and $M_2$ have higher priority than $m_1$ according to $\succ_{c_1}$, school $c_1$ must satisfy its minority reserve ($r_{c1}=1$). Consequently, $c_1$ tentatively holds the minority applicant $m_1$. Since the capacity is 1, no seats remain, and the majority applicants $M_1$ and $M_2$ are rejected.
+
+The rejected students, $M_1$ and $M_2$, then propose to their next choice within the band, $c_2$ (Rank 2). School $c_2$ compares these new applicants based on its priority $\succ_{c_2}$. Since $M_2 \succ_{c_2} M_1$, school $c_2$ tentatively holds $M_2$ and rejects $M_1$. $M_1$ has no further choices in this band. The sub-process terminates, and the tentative assignments are finalized. $m_1$ is permanently matched to $c_1$, and $M_2$ is permanently matched to $c_2$. $M_1$ remains unmatched. This outcome illustrates how the reserve allows a lower-priority minority student to secure a popular school, while the parallel choice band enables a rejected majority student ($M_2$) to immediately secure their second choice.
+
+%----------------------------------------------------------------------------------------
+%	SECTION 4: WELFARE PROPERTIES
+%----------------------------------------------------------------------------------------
+\section{Welfare Properties}
+
+This section examines the performance of the Shanghai Mechanism regarding welfare under affirmative action policies. We focus on minimal responsiveness, respect for affirmative action policies, and non-wastefulness. The axiomatic framework and the specific definitions used here follow \textcite{chaudhury2025affirmative}, particularly the formalization of respecting affirmative action policies.
+
+\subsection{Minimal Responsiveness}
+
+A key concern in affirmative action design is the possibility of ``perverse responsiveness,'' where policies intended to help minority students inadvertently harm them. Minimal responsiveness is the axiom designed to prevent this outcome.
+
+\begin{definition}[Stronger Affirmative Action Policies]
+We compare two profiles based on the strength of their AAP commitments (i.e., the size of their minority allotments).
+\begin{enumerate}[label=\arabic*.]
+    \item Profile $(p, \succ, \bar{q})$ has a stronger \textbf{quota-based} AAP than $(p, \succ, q)$ if the majority quotas are weakly lower (more restrictive) at all schools, i.e., $q^{M}_c \geq \bar{q}^{M}_c$.
+    \item Profile $(p, \succ, \bar{v})$ has a stronger \textbf{reserve-based} AAP than $(p, \succ, v)$ if the minority reserves are weakly higher at all schools, i.e., $\bar{r}_c \geq r_c$.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Minimal Responsiveness]
+A mechanism $\phi$ is \textbf{minimally responsive} if, whenever a new profile has a stronger AAP, the resulting matching $\mu$ is not \textbf{Pareto inferior} for the minority group $\SMin$ compared to the matching $\nu$ produced by the weaker policy. That is, it is not the case that every minority student weakly prefers $\nu$ to $\mu$ and at least one strictly prefers $\nu$.
+\end{definition}
+
+\begin{proposition}\label{prop:quota-not-responsive}
+The Shanghai Mechanism is not minimally responsive to quota-based AAPs.
+\end{proposition}
+
+Intuitively, this failure occurs because tightening a majority quota forces majority students to be rejected from their preferred schools earlier in the process. These rejected students must then apply to other schools, increasing the competition in subsequent steps of the round. Paradoxically, this increased competition can displace minority students from schools they would have otherwise secured under a weaker policy, leaving them worse off despite the intention to assist them.
+
+\begin{proof}
+Consider a market with schools $C = \{c_1, c_2, c_3\}$ and students $S = \{M_1, M_2, M_3, m_1\}$. Initial capacities are $(q_{c_1}, q^{M}_{c_1}) = (2, 2)$; others $(1, 1)$. The stronger policy reduces the majority quota at $c_1$ to $\bar{q}^{M}_{c_1} = 1$.
+
+\begin{table}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\caption{Priority Profile $\succ$}
+\label{tab:priority_prop1}
+\begin{tabular}{ccc}
+\toprule
+$\succ_{c_1}$ & $\succ_{c_2}$ & $\succ_{c_3}$ \\
+\midrule
+$M_1$ & $M_2$ & $M_3$ \\
+$M_2$ & $m_1$ & $M_2$ \\
+$m_1$ & $M_1$ & $m_1$ \\
+$M_3$ & $M_3$ & $M_1$ \\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\caption{Preference Profile $p$}
+\label{tab:preference_prop1}
+\begin{tabular}{cccc}
+\toprule
+$p_{M_1}$ & $p_{M_2}$ & $p_{m_1}$ & $p_{M_3}$ \\
+\midrule
+\boxres{$c_1$} & \underres{$c_1$} & \underres{$c_2$} & \boxres{$c_3$} \\
+$c_2$ & \boxres{$c_2$} & \boxres{$c_1$} & $c_2$ \\
+\hline
+$c_3$ & $c_3$ & $c_3$ & $c_1$ \\
+\bottomrule
+\end{tabular}
+\footnotesize{\\ \textit{Underline: Original Policy. Box: Stronger Policy.}}
+\end{minipage}
+\end{table}
+
+Under the \textbf{Original Policy} ($q^{M}_{c_1}=2$), the mechanism yields the matching $\{M_1:c_1, M_2:c_1, m_1:c_2, M_3:c_3\}$. The minority student $m_1$ receives their top choice, $c_2$.
+
+Under the \textbf{Stronger Policy} ($\bar{q}^{M}_{c_1}=1$), the mechanism yields the matching $\{M_1:c_1, m_1:c_1, M_2:c_2, M_3:c_3\}$. Here, $m_1$ receives $c_1$ (their second choice). Since $c_2 p_{m_1} c_1$, the minority student is strictly worse off under the stronger affirmative action policy.
+\end{proof}
+
+\begin{proposition}\label{prop:reserve-not-responsive}
+The Shanghai Mechanism is not minimally responsive to reserve-based AAPs.
+\end{proposition}
+
+Similar to the quota implementation, introducing or increasing minority reserves (increasing the minority allotment $v_c$) changes the outcome within the rounds. While stronger reserves provide an advantage to some minority students, this can trigger a domino effect that displaces others. The resulting reconfiguration of assignments may ultimately harm a minority student who would have achieved a better outcome under the weaker policy.
+
+\begin{proof}
+Consider $C = \{c_1, \dots, c_4\}$ and $S = \{M_1, M_2, m_1, m_2\}$. All schools have unit capacity ($q=1$) with no initial reserves ($r=0$). Stronger policy: $\bar{r}_{c_1} = 1$.
+
+\begin{table}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\caption{Priority Profile $\succ$}
+\label{tab:priority_prop2}
+\begin{tabular}{cccc}
+\toprule
+$\succ_{c_1}$ & $\succ_{c_2}$ & $\succ_{c_3}$ & $\succ_{c_4}$ \\
+\midrule
+$M_2$ & $M_2$ & $M_1$ & $M_1$ \\
+$m_1$ & $M_1$ & $m_1$ & $M_2$ \\
+$m_2$ & $m_2$ & $M_2$ & $m_1$ \\
+$M_1$ & $m_1$ & $m_2$ & $m_2$ \\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\caption{Preference Profile $p$}
+\label{tab:preference_prop2}
+\begin{tabular}{cccc}
+\toprule
+$p_{M_1}$ & $p_{M_2}$ & $p_{m_1}$ & $p_{m_2}$ \\
+\midrule
+\underres{$c_2$} & \underres{$c_1$} & \underres{$c_3$} & $c_1$ \\
+\boxres{$c_3$} & \boxres{$c_2$} & \boxres{$c_1$} & $c_2$ \\
+\hline
+$c_1$ & $\varnothing$ & $c_2$ & \boxres{$c_4$} \\
+\bottomrule
+\end{tabular}
+\footnotesize{\\ \textit{Underline: Original Policy. Box: Stronger Policy.}}
+\end{minipage}
+\end{table}
+
+Under the \textbf{Original Policy} ($r=0$), the mechanism yields the matching $\{M_1:c_2, M_2:c_1, m_1:c_3, m_2:c_4\}$. Minority student $m_1$ receives their first choice, $c_3$.
+
+Under the \textbf{Stronger Policy} ($\bar{r}_{c_1}=1$), the mechanism yields the matching $\{M_1:c_3, M_2:c_2, m_1:c_1, m_2:c_4\}$. Here, $m_1$ receives $c_1$ (their second choice). Since $c_3 p_{m_1} c_1$, the minority group is Pareto inferior under the stronger policy.
+\end{proof}
+
+\subsection{Respecting the Affirmative Action Policy}
+
+We now examine whether the mechanism successfully implements its stated affirmative action goals by ensuring the minority allotments are met when possible.
+
+\begin{definition}[Respecting AAP]
+A mechanism $\phi$ \textbf{respects the affirmative action policy} if, whenever a minority student prefers a school $c$ to their assignment, it must be that the school has already met its minority allotment $v_c$. Formally, for all $m \in \SMin$, and $c \in C$:
+$$[c \, p_m \, \phi_m(p, \succ, q)] \implies [|\mu^{m}(c)| \geq v_c]$$
+\end{definition}
+
+\begin{proposition}\label{prop:reserve-not-respect}
+The Shanghai Mechanism with minority reserves does not respect the affirmative action policy.
+\end{proposition}
+
+The core issue lies in the Shanghai Mechanism's round-based finalization structure. Assignments are finalized permanently after each round. If a school does not receive enough minority applicants in an early round to fill its reserve, those seats may be filled by majority students or left empty and finalized. If a qualified minority student applies in a later round, they may be rejected because the school is physically full or the window has closed, even though the reserve target was never met. The mechanism cannot "look back" to correct this under-subscription.
+
+\begin{proof}
+Consider a school $c$ with capacity $q_c = 2$ and a minority reserve $r_c = 2$. In Round 0 (Rank 1), suppose one majority student $M_1$ and one minority student $m_1$ apply. The school admits $m_1$ (counting toward the reserve) and fills the remaining seat with $M_1$. This matching is finalized. Thus, the school has only one minority student ($|\mu^m(c)| = 1 < r_c$). In Round 1 (Rank 3), suppose another minority student $m_2$ applies to $c$. Although the reserve target ($2$) has not been met, the school is physically full ($q_c=2$). Consequently, $m_2$ is rejected. We have a situation where $c p_{m_2} \phi_{m_2}$, but the number of admitted minority students ($1$) is strictly less than the allotment ($2$).
+\end{proof}
+
+\begin{proposition}\label{prop:quota-respect}
+The Shanghai Mechanism with majority quotas respects the affirmative action policy.
+\end{proposition}
+
+In contrast to reserves, majority quotas function as a hard ceiling. They forbid the school from admitting more than a specific number of majority students, regardless of the round. Therefore, if the school becomes full and rejects a minority student, it guarantees that the remaining capacity is occupied by other minority students, thereby satisfying the implicit allotment.
+
+\begin{proof}
+Under majority quotas, the minority allotment is defined as $v_c = q_c - q^{M}_c$. Suppose a minority student $m$ prefers $c$ to their assignment $\phi_m$. This preference implies that $m$ applied to $c$ in some round and was rejected. Rejection in any round implies that the school is full to capacity $q_c$ (otherwise, $m$ would have been accepted). Since the mechanism strictly enforces that at most $q^{M}_c$ majority students are admitted, the number of admitted minority students must be at least the residual capacity: $|\mu^{m}(c)| = q_c - |\mu^{M}(c)| \geq q_c - q^{M}_c = v_c$. Thus, the minority allotment is always satisfied when a minority student is rejected.
+\end{proof}
+
+\subsection{Non-wastefulness}
+
+Efficiency requires that no seats are left unnecessarily empty if students desire them.
+
+\begin{definition}[Non-wastefulness]
+A mechanism $\phi$ is \textbf{non-wasteful} if a student is rejected from a school preferred to their assignment only if that school is full. Formally, for any student $s$ and school $c$:
+$$c \, p_s \, \phi_s(p, \succ) \implies |\mu(c)| = q_c$$
+\end{definition}
+
+\begin{proposition}\label{prop:quota-wasteful}
+The Shanghai Mechanism with majority quotas is wasteful.
+\end{proposition}
+
+Wastefulness is an inherent drawback of quota-based policies. By strictly capping the number of majority students, the mechanism may leave seats empty even when there is demand from majority students and no demand from minority students. This creates ``artificial scarcity,'' where physical capacity exists but is policy-restricted.
+
+\begin{proof}
+Consider a school $c$ with capacity $q_c = 2$ and a majority quota $q^{M}_c = 1$. Suppose two majority students, $M_1$ and $M_2$, list $c$ as their first choice, and no minority students apply. In Round 0, the school accepts $M_1$ but must reject $M_2$ because the majority quota is full. The second seat, reserved implicitly for a minority student, remains empty. $M_2$ prefers $c$ to being unmatched, but $c$ has an empty seat ($|\mu(c)| = 1 < q_c$).
+\end{proof}
+
+\begin{proposition}\label{prop:reserve-non-wasteful}
+The Shanghai Mechanism with minority reserves is non-wasteful.
+\end{proposition}
+
+Minority reserves are designed to be flexible. They prioritize minority students for certain seats but do not block majority students if there are no minority applicants. Within each round, the mechanism fills schools to capacity if there is enough demand, regardless of group identity, ensuring no seats are left empty while interested students are rejected.
+
+\begin{proof}
+Under minority reserves, seats not filled by minority applicants are available to majority applicants. Suppose a student $s$ prefers school $c$ to their final assignment. This implies $s$ applied to $c$ in some round and was rejected. In the DA sub-process used within each round, a student is rejected only if the school is filled to capacity with students who have higher effective priority. Therefore, if $s$ is rejected, it must be that the school is full ($|\mu(c)| = q_c$).
+\end{proof}
+
+\subsection{Summary of Welfare Properties}
+
+\begin{theorem}
+The Shanghai Mechanism with \textbf{minority reserves}:
+\begin{enumerate}[label=(\roman*)]
+    \item is non-wasteful (Proposition \ref{prop:reserve-non-wasteful}),
+    \item does not respect the affirmative action policy (Proposition \ref{prop:reserve-not-respect}), and
+    \item is not minimally responsive (Proposition \ref{prop:reserve-not-responsive}).
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+The Shanghai Mechanism with \textbf{majority quotas}:
+\begin{enumerate}[label=(\roman*)]
+    \item is wasteful (Proposition \ref{prop:quota-wasteful}),
+    \item respects the affirmative action policy (Proposition \ref{prop:quota-respect}), and
+    \item is not minimally responsive (Proposition \ref{prop:quota-not-responsive}).
+\end{enumerate}
+\end{theorem}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 5: FAIRNESS PROPERTIES
+%----------------------------------------------------------------------------------------
+\section{Fairness Properties}
+
+This section examines fairness. In the context of Affirmative Action Policies (AAPs), fairness analysis must distinguish between priority violations that are \textit{necessary} to achieve diversity goals and those that are \textit{unnecessary} structural flaws of the mechanism. We first analyze Affirmative Action Fairness, which ensures priority violations are limited to the extent required by the policy. We then examine Within-Group Fairness, which ensures no unnecessary violations occur among students of the same group.
+
+\subsection{Affirmative Action Fairness}
+
+Affirmative Action Fairness (AA Fairness) balances the goal of promoting diversity with the principle of respecting priorities. It acknowledges that satisfying the minority allotment $v_c$ may require violating the priorities of some students. However, it limits the scope of these violations to the size of the affirmative action commitment.
+
+\begin{definition}[AA Fairness]
+A mechanism is \textbf{Affirmative Action (AA) fair} if it satisfies two conditions:
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{No Majority Violation}: A majority student $M$ should not be assigned to a school $c$ if any other student $s$ (majority or minority) prefers $c$ to their assignment and has higher priority than $M$ at $c$.
+    \item \textbf{Limited Minority Violation}: The number of minority students assigned to school $c$ who cause justified envy among higher-priority students cannot exceed the minority allotment $v_{c}$. Formally, let $V_c(\mu)$ be the set of minority students in $\mu(c)$ who violate the priority of at least one other student:
+    $$ V_c(\mu) = \{ m \in \mu^m(c) : \exists s \in S \text{ s.t. } c p_s \mu(s) \text{ and } s \succ_c m \} $$
+    AA Fairness requires $|V_c(\mu)| \leq v_c$.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}\label{prop:reserve-not-AA-fair}
+The Shanghai Mechanism with minority reserves is not AA fair.
+\end{proposition}
+
+The failure of AA fairness in the Shanghai Mechanism highlights a critical flaw: temporal rigidity. The mechanism allows a lower-priority majority student to secure a seat in an early round. Once this assignment is finalized, the seat is permanently unavailable, even if a higher-priority student applies in a later round. This results in an unnecessary priority violation that is not justified by the affirmative action policy.
+
+\begin{proof}
+Consider a market with schools $C=\{c_1, c_2, c_3\}$ and students $S=\{M_1, M_2, M_3, M_4\}$. Let $c_1$ be the desired school with capacity $q_{c_1}=1$ and a minority reserve $r_{c_1}=1$. Priority is $M_1 \succ_{c_1} M_2$. Student $M_3$ has higher priority at $c_2$, and $M_4$ has higher priority at $c_3$.
+
+\begin{table}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\caption{Priority Profile $\succ$}
+\label{tab:priority_fairness}
+\begin{tabular}{ccc}
+\toprule
+$\succ_{c_1}$ & $\succ_{c_2}$ & $\succ_{c_3}$ \\
+\midrule
+$M_1$ & $M_3$ & $M_4$ \\
+$M_2$ & $M_1$ & $M_1$ \\
+$M_3$ & $M_2$ & $M_2$ \\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\caption{Preference Profile $p$}
+\label{tab:preference_fairness}
+\begin{tabular}{cccc}
+\toprule
+$p_{M_1}$ & $p_{M_2}$ & $p_{M_3}$ & $p_{M_4}$ \\
+\midrule
+$c_2$ & \boxres{$c_1$} & \boxres{$c_2$} & \boxres{$c_3$} \\
+$c_3$ & $c_2$ & $c_1$ & $\varnothing$ \\
+\hline
+$c_1$ & $\varnothing$ & $\varnothing$ & $\varnothing$ \\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\end{table}
+
+In Round 0 (Ranks 1 and 2), $M_2$ applies to $c_1$ and is accepted. $M_3$ applies to $c_2$ and is accepted. $M_4$ applies to $c_3$ and is accepted. $M_1$ applies to $c_2$ (Rank 1) and is rejected by $M_3$, then applies to $c_3$ (Rank 2) and is rejected by $M_4$. The round is finalized, and $M_1$ is unassigned.
+
+In Round 1 (Rank 3), the unassigned $M_1$ applies to $c_1$. Although $M_1$ has higher priority ($M_1 \succ_{c_1} M_2$), the seat at $c_1$ is already finalized. $M_1$ is rejected. The final matching is $\{M_2:c_1, M_3:c_2, M_4:c_3, M_1:\varnothing\}$. Since $M_1$ prefers $c_1$ to $\varnothing$ and $M_1 \succ_{c_1} M_2$, there is justified envy against a majority student, violating AA Fairness.
+\end{proof}
+
+\begin{proposition}\label{prop:quota-not-AA-fair}
+The Shanghai Mechanism with majority quotas is not AA fair.
+\end{proposition}
+
+The logic for quotas is identical to that of reserves. While quotas cap majority students, they do not prevent a low-priority majority student from taking a valid seat in an early round, thereby blocking a higher-priority student who arrives later. This violates the condition that no majority student should cause justified envy.
+
+\begin{proof}
+Consider the same scenario as Proposition \ref{prop:reserve-not-AA-fair}. The implementation of a quota does not prevent $M_2$ from securing the seat in Round 0 (assuming $q^{M}_{c_1} \geq 1$). The subsequent rejection of the higher-priority $M_1$ in Round 1 violates the ``No Majority Violation'' condition.
+\end{proof}
+
+\subsection{Within-Minority Fairness}
+
+Within-Group Fairness requires that the priorities of students are respected relative to others in their own group. An AAP defines necessary violations between groups to satisfy diversity goals, but violations within the same group are never necessary for this purpose. Satisfying AA Fairness generally implies satisfying Within-Group Fairness; however, since the Shanghai Mechanism fails AA Fairness, we investigate whether it at least satisfies this more basic condition.
+
+\begin{definition}[Within-Minority Fairness]
+A mechanism $\phi$ satisfies Within-Minority Fairness if a minority student's priority is never violated by another minority student. That is, there do not exist $m_1, m_{2} \in \SMin$ and $c \in C$ such that $c p_{m_{1}} \phi_{m_{1}}$, $m_{1} \succ_{c} m_{2}$, and $\phi_{m_{2}} = c$.
+\end{definition}
+
+\begin{proposition}\label{prop:reserve-violates-within-minority}
+The Shanghai Mechanism with minority reserves violates Within-Minority Fairness.
+\end{proposition}
+
+This violation highlights a critical flaw in parallel mechanisms known as the ``preemption effect.'' A lower-priority minority student can secure a seat simply by applying in an earlier round. Because this assignment is irreversible, a higher-priority minority student who lists the same school in a later round is blocked, despite having a superior claim to the seat based on priority.
+
+\begin{proof}
+Consider a market with students $S=\{m_1, m_2, M_1, M_2\}$ and schools $C=\{c_1, c_2, c_3\}$, all with unit capacity. Priority is $m_1 \succ_{c_1} m_2$. Majority students $M_1$ and $M_2$ have higher priority at $c_2$ and $c_3$ respectively.
+
+\begin{table}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\caption{Priority Profile $\succ$}
+\begin{tabular}{ccc}
+\toprule
+$\succ_{c_1}$ & $\succ_{c_2}$ & $\succ_{c_3}$ \\
+\midrule
+$m_1$ & $M_1$ & $M_2$ \\
+$m_2$ & $m_1$ & $m_1$ \\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\caption{Preference Profile $p$}
+\begin{tabular}{cccc}
+\toprule
+$p_{m_1}$ & $p_{m_2}$ & $p_{M_1}$ & $p_{M_2}$ \\
+\midrule
+$c_2$ & \boxres{$c_1$} & \boxres{$c_2$} & \boxres{$c_3$} \\
+$c_3$ & $c_2$ & $\varnothing$ & $\varnothing$ \\
+\hline
+$c_1$ & $\varnothing$ & $\varnothing$ & $\varnothing$ \\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\end{table}
+
+In Round 0 (Ranks 1 and 2), $m_2$ applies to $c_1$ and is accepted. Simultaneously, $M_1$ applies to $c_2$ and $M_2$ to $c_3$, and both are accepted based on priority. $m_1$ applies to $c_2$ and $c_3$ but is rejected by higher-priority applicants ($M_1$ at $c_2$ and $M_2$ at $c_3$). The assignment $\{m_2:c_1\}$ is finalized. In Round 1, $m_1$ applies to $c_1$ (Rank 3). Since the seat is filled, $m_1$ is rejected. $m_1$ has justified envy toward $m_2$, violating Within-Minority Fairness.
+\end{proof}
+
+\begin{proposition}\label{prop:quota-violates-within-minority}
+The Shanghai Mechanism with majority quotas violates Within-Minority Fairness.
+\end{proposition}
+
+The violation of within-minority fairness is independent of the AAP implementation. It is a structural failure caused by prioritizing the application round over priority rank. Just as with reserves, a finalized assignment in an early round creates an insurmountable barrier for higher-priority students applying later, regardless of whether a quota is in place.
+
+\begin{proof}
+The proof is identical to Proposition \ref{prop:reserve-violates-within-minority}. Whether under reserves or quotas, the finalization of $m_2$ in Round 0 prevents the higher-priority $m_1$ from being considered in Round 1.
+\end{proof}
+
+\subsection{Summary of Fairness Properties}
+
+\begin{theorem}
+The Shanghai Mechanism with \textbf{minority reserves}:
+\begin{enumerate}[label=(\roman*)]
+    \item is not AA fair (Proposition \ref{prop:reserve-not-AA-fair}), and
+    \item violates Within-Minority Fairness (Proposition \ref{prop:reserve-violates-within-minority}).
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+The Shanghai Mechanism with \textbf{majority quotas}:
+\begin{enumerate}[label=(\roman*)]
+    \item is not AA fair (Proposition \ref{prop:quota-not-AA-fair}), and
+    \item violates Within-Minority Fairness (Proposition \ref{prop:quota-violates-within-minority}).
+\end{enumerate}
+\end{theorem}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 6: INCENTIVE PROPERTIES
+%----------------------------------------------------------------------------------------
+\section{Incentive Properties}
+
+Strategy-proofness ensures that students cannot benefit from misrepresenting their preferences. While the Deferred Acceptance (DA) algorithm used within each round is strategy-proof regarding the preferences processed in that specific step, the overall Shanghai Mechanism is \textit{not} strategy-proof with respect to students' full preference lists.
+
+This vulnerability arises from the mechanism's core feature: the permanent finalization of assignments after each round. As detailed in Section 5, this structure leads to global priority violations. These priority violations are intrinsically linked to incentives for manipulation. A lower-priority student can secure a seat in an early round by applying before a higher-priority student does. Consequently, students face strong incentives to engage in ``round-based manipulation''—strategically ranking a school higher than their true preference dictates solely to ensure it falls within an earlier choice band and avoid being preempted.
+
+\subsection{Strategic Vulnerabilities}
+
+We demonstrate that the Shanghai Mechanism is manipulable for students regardless of whether affirmative action is implemented via reserves or quotas. We consolidate these findings into a single theorem because the underlying mechanism of manipulation—exploiting application rounds—is identical for both minority and majority groups.
+
+\begin{theorem}\label{thm:not-strategy-proof}
+The Shanghai Mechanism with affirmative action (minority reserves or majority quotas) is not strategy-proof for either minority or majority students.
+\end{theorem}
+
+The mechanism creates a "use it or lose it" dynamic. If a student risks applying to a highly competitive school in a later round, they may find it filled by lower-priority applicants who applied earlier. Therefore, it is often beneficial to misrepresent preferences by moving a safe or attainable school up the ranking list into an earlier round to guarantee a seat, rather than reporting truthfully and risking rejection.
+
+\begin{proof}
+We provide a counterexample showing that a student can benefit from misrepresenting their preferences to force an earlier application. Let $s_1$ be a high-priority student (minority or majority) and $s_2$ be a lower-priority student. Consider a market with schools $C=\{c_1, c_2, c_3\}$ where $c_1$ has capacity $q_{c_1}=1$. Priority is $s_1 \succ_{c_1} s_2$. Other students $s_3$ and $s_4$ have higher priority at $c_2$ and $c_3$ respectively and fill the capacity of those schools in Round 0.
+
+\begin{table}[H]
+\centering
+\begin{minipage}{0.30\textwidth}
+\centering
+\caption{Priority Profile $\succ$}
+\label{tab:priority_sp}
+\begin{tabular}{ccc}
+\toprule
+$\succ_{c_1}$ & $\succ_{c_2}$ & $\succ_{c_3}$ \\
+\midrule
+$s_1$ & $s_3$ & $s_4$ \\
+$s_2$ & $s_1$ & $s_1$ \\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}{0.32\textwidth}
+\centering
+\caption{True Preferences $p$}
+\label{tab:preference_sp_true}
+\begin{tabular}{ccc}
+\toprule
+$p_{s_{1}}$ & $p_{s_{2}}$ \\
+\midrule
+$c_{2}$ & \boxres{$c_{1}$} \\
+$c_{3}$ & $c_{2}$ \\
+\hline
+$c_{1}$ & $c_{3}$ \\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\hfill
+\begin{minipage}{0.32\textwidth}
+\centering
+\caption{Manipulated $p'$}
+\label{tab:preference_sp_manip}
+\begin{tabular}{ccc}
+\toprule
+$p'_{s_{1}}$ & $p_{s_{2}}$ \\
+\midrule
+\boxres{$c_{1}$} & $c_{1}$ \\
+$c_{2}$ & $c_{2}$ \\
+\hline
+$c_{3}$ & $c_{3}$ \\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\end{table}
+
+Under \textbf{Truthful Reporting} (Table \ref{tab:preference_sp_true}):
+In \textbf{Round 0} (Ranks 1 and 2), $s_2$ applies to $c_1$. Since $c_1$ has space, $s_2$ is accepted and finalized. $s_1$ applies to $c_2$ and $c_3$ but is rejected by higher priority students ($s_3$ and $s_4$) who occupy the seats. In \textbf{Round 1} (Rank 3), $s_1$ applies to $c_1$. Although $s_1 \succ_{c_1} s_2$, the seat is already finalized. $s_1$ is rejected and remains unmatched.
+
+Under \textbf{Manipulation} (Table \ref{tab:preference_sp_manip}):
+$s_1$ misreports preferences by moving $c_1$ to Rank 1 ($p'_{s_1}$). In \textbf{Round 0}, both $s_1$ and $s_2$ apply to $c_1$. The mechanism processes these applications together. Since $s_1 \succ_{c_1} s_2$, the school accepts $s_1$ and rejects $s_2$. The assignment is finalized. The outcome is $\mu'(s_1) = c_1$.
+
+Since $c_1 p_{s_1} \varnothing$, $s_1$ benefits from the manipulation. Thus, the mechanism is not strategy-proof.
+\end{proof}
+
+%----------------------------------------------------------------------------------------
+%	SECTION 7: CONCLUSION
+%----------------------------------------------------------------------------------------
+\section{Conclusion}
+
+This thesis provides a theoretical analysis of affirmative action policies (AAPs) within parallel school admission mechanisms, focusing on China's Shanghai Mechanism. The study evaluates how the parallel processing structure interacts with affirmative action objectives, revealing significant tensions between efficiency, fairness, and incentives.
+
+\begin{table}[H]
+\centering
+\caption{Summary of Shanghai Mechanism Properties}
+\label{tab:summary}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Property} & \textbf{Minority Reserves} & \textbf{Majority Quotas} \\
+\midrule
+Strategy-proofness & No & No \\
+Minimally Responsive & No & No \\
+Respects AA Policy & No & Yes \\
+Non-wasteful & Yes & No \\
+AA Fair & No & No \\
+Within-Minority Fair & No & No \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The results, summarized in Table \ref{tab:summary}, demonstrate several shortcomings. Critically, both quota-based and reserve-based implementations fail minimal responsiveness; strengthening affirmative action can inadvertently harm the minority students it intends to serve. The mechanism also violates fairness within minority groups, as the round-based finalization structure can allow lower-priority minority students to secure seats over higher-priority peers who apply in later rounds. Furthermore, the mechanism is susceptible to strategic manipulation by all students, who are incentivized to engage in round-based manipulations to secure early admission.
+
+The round-based finalization structure is the primary source of these issues. Permanent assignments after each round create temporal rigidity that prevents the correction of priority violations and hinders the effective implementation of AAPs. This rigidity creates opportunities for strategic manipulation that would not exist in a standard Deferred Acceptance mechanism.
+
+It is important to interpret these findings within the context of market design theory. While the failure of strategy-proofness indicates a lack of robustness, it does not guarantee that manipulation will occur in every instance, as successful manipulation requires information about other students' preferences. However, for Chinese policymakers, these results highlight potential structural barriers. While reforms might appear necessary, such efforts are constrained by fundamental theoretical limits. As established by \textcite{chaudhury2025affirmative}, achieving a mechanism that simultaneously satisfies non-wastefulness, minimal responsiveness, and respect for affirmative action policies is often impossible under standard stability constraints. Therefore, any reform to the Shanghai Mechanism will inherently involve trade-offs between these normative goals.
+
+Future research should explore the implications of these findings for parallel mechanisms with larger choice bands ($e > 2$). We conjecture that the negative results regarding fairness and incentives identified here would extend to these broader settings, alongside the potential positive gains in stability and insurance identified in previous literature. Additionally, investigating China's specific point-based affirmative action system within this framework could yield further insights into how different AAP implementations interact with parallel processing structures.
+
+\newpage
+\printbibliography
+
+\end{document}

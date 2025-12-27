@@ -1,0 +1,679 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{cms/global//global/global}
+    \entry{abdulkadirouglu2005boston}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=9210d7a0646d485f1f21951c61c52cd2}{%
+           family={Abdulkadiroğlu},
+           familyi={A\bibinitperiod},
+           given={Atila},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e75d96917751be05beac30ccd106dc84}{%
+           family={Pathak},
+           familyi={P\bibinitperiod},
+           given={Parag\bibnamedelima A},
+           giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=320ab47af0997a7a69af46760b320783}{%
+           family={Roth},
+           familyi={R\bibinitperiod},
+           given={Alvin\bibnamedelima E},
+           giveni={A\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8073f6091c1c9c41b6684fbd2d0112aa}{%
+           family={Sönmez},
+           familyi={S\bibinitperiod},
+           given={Tayfun},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {American Economic Association}%
+      }
+      \strng{namehash}{009b8760f2c3c4cd564591d9c91799d7}
+      \strng{fullhash}{c4dbbbd7273ceaadcd0182045238c92e}
+      \strng{bibnamehash}{c4dbbbd7273ceaadcd0182045238c92e}
+      \strng{authorbibnamehash}{c4dbbbd7273ceaadcd0182045238c92e}
+      \strng{authornamehash}{009b8760f2c3c4cd564591d9c91799d7}
+      \strng{authorfullhash}{c4dbbbd7273ceaadcd0182045238c92e}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{American Economic Review}
+      \field{number}{2}
+      \field{title}{The Boston public school match}
+      \field{volume}{95}
+      \field{year}{2005}
+      \field{pages}{368\bibrangedash 371}
+      \range{pages}{4}
+    \endentry
+    \entry{abdulkadirouglu2003school}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=9210d7a0646d485f1f21951c61c52cd2}{%
+           family={Abdulkadiroğlu},
+           familyi={A\bibinitperiod},
+           given={Atila},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8073f6091c1c9c41b6684fbd2d0112aa}{%
+           family={Sönmez},
+           familyi={S\bibinitperiod},
+           given={Tayfun},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {American Economic Association}%
+      }
+      \strng{namehash}{3ea8bbd7b953270c0887a3a025b4e285}
+      \strng{fullhash}{3ea8bbd7b953270c0887a3a025b4e285}
+      \strng{bibnamehash}{3ea8bbd7b953270c0887a3a025b4e285}
+      \strng{authorbibnamehash}{3ea8bbd7b953270c0887a3a025b4e285}
+      \strng{authornamehash}{3ea8bbd7b953270c0887a3a025b4e285}
+      \strng{authorfullhash}{3ea8bbd7b953270c0887a3a025b4e285}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{American economic review}
+      \field{number}{3}
+      \field{title}{School choice: A mechanism design approach}
+      \field{volume}{93}
+      \field{year}{2003}
+      \field{pages}{729\bibrangedash 747}
+      \range{pages}{19}
+    \endentry
+    \entry{afacan2016affirmative}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=2f9efc6929739889b6f1955d7517247e}{%
+           family={Afacan},
+           familyi={A\bibinitperiod},
+           given={Mustafa\bibnamedelima Oğuz},
+           giveni={M\bibinitperiod\bibinitdelim O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5987c811e5e5a31881b034dd10a380bb}{%
+           family={Salman},
+           familyi={S\bibinitperiod},
+           given={Umutcan},
+           giveni={U\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{84c417da87b342825d074259fe8b4a70}
+      \strng{fullhash}{84c417da87b342825d074259fe8b4a70}
+      \strng{bibnamehash}{84c417da87b342825d074259fe8b4a70}
+      \strng{authorbibnamehash}{84c417da87b342825d074259fe8b4a70}
+      \strng{authornamehash}{84c417da87b342825d074259fe8b4a70}
+      \strng{authorfullhash}{84c417da87b342825d074259fe8b4a70}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Economics Letters}
+      \field{title}{Affirmative actions: The Boston mechanism case}
+      \field{volume}{141}
+      \field{year}{2016}
+      \field{pages}{95\bibrangedash 97}
+      \range{pages}{3}
+    \endentry
+    \entry{ayoade2023school}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=2cffaffc8a0c13326a10ff0e6d002b93}{%
+           family={Ayoade},
+           familyi={A\bibinitperiod},
+           given={Nickesha},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f56411a78ec4395978c9ed3ece69001d}{%
+           family={Pápai},
+           familyi={P\bibinitperiod},
+           given={Szilvia},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{61d8daf3474dda5ec4e3d21d67023173}
+      \strng{fullhash}{61d8daf3474dda5ec4e3d21d67023173}
+      \strng{bibnamehash}{61d8daf3474dda5ec4e3d21d67023173}
+      \strng{authorbibnamehash}{61d8daf3474dda5ec4e3d21d67023173}
+      \strng{authornamehash}{61d8daf3474dda5ec4e3d21d67023173}
+      \strng{authorfullhash}{61d8daf3474dda5ec4e3d21d67023173}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Games and Economic Behavior}
+      \field{title}{School choice with preference rank classes}
+      \field{volume}{137}
+      \field{year}{2023}
+      \field{pages}{317\bibrangedash 341}
+      \range{pages}{25}
+    \endentry
+    \entry{chaudhury2025affirmative}{report}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=ea48c4396a8334aecaca0abd4c11f51c}{%
+           family={Chaudhury},
+           familyi={C\bibinitperiod},
+           given={Muntasir},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f56411a78ec4395978c9ed3ece69001d}{%
+           family={Pápai},
+           familyi={P\bibinitperiod},
+           given={Szilvia},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5eb679146556cf19ed13450eaa3529e7}
+      \strng{fullhash}{5eb679146556cf19ed13450eaa3529e7}
+      \strng{bibnamehash}{5eb679146556cf19ed13450eaa3529e7}
+      \strng{authorbibnamehash}{5eb679146556cf19ed13450eaa3529e7}
+      \strng{authornamehash}{5eb679146556cf19ed13450eaa3529e7}
+      \strng{authorfullhash}{5eb679146556cf19ed13450eaa3529e7}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Affirmative Action Policies in School Choice: Immediate versus Deferred Acceptance}
+      \field{type}{techreport}
+      \field{year}{2025}
+    \endentry
+    \entry{chen2022comparison}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=6af8562346b1be18c09f2d1db1e2c059}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Yajing},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=97d0a3283a3582f309cf6c9e5424052c}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Yanyue},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ecb0e064ce23816d987d043da53b4d79}{%
+           family={Jiao},
+           familyi={J\bibinitperiod},
+           given={Zhenhua},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fac06464429d0f9d705d774c871ab76e}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Yunfan},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{f7c65c17390deec7c198bfea1c1ccb03}
+      \strng{fullhash}{aa41f0d0643bef49d7b48c06a1d4612f}
+      \strng{bibnamehash}{aa41f0d0643bef49d7b48c06a1d4612f}
+      \strng{authorbibnamehash}{aa41f0d0643bef49d7b48c06a1d4612f}
+      \strng{authornamehash}{f7c65c17390deec7c198bfea1c1ccb03}
+      \strng{authorfullhash}{aa41f0d0643bef49d7b48c06a1d4612f}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Operations Research Letters}
+      \field{number}{5}
+      \field{title}{A comparison study on responsiveness of three mechanisms to affirmative action in school choice}
+      \field{volume}{50}
+      \field{year}{2022}
+      \field{pages}{488\bibrangedash 494}
+      \range{pages}{7}
+    \endentry
+    \entry{chen2017chinese}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=b6f25c2ea695f4385f6acab832194dfc}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Yan},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b175872bc940b3f8a6e80a36c4e03a1a}{%
+           family={Kesten},
+           familyi={K\bibinitperiod},
+           given={Onur},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {University of Chicago Press Chicago, IL}%
+      }
+      \strng{namehash}{0a4050fad21743530f9594f1c1dca9b2}
+      \strng{fullhash}{0a4050fad21743530f9594f1c1dca9b2}
+      \strng{bibnamehash}{0a4050fad21743530f9594f1c1dca9b2}
+      \strng{authorbibnamehash}{0a4050fad21743530f9594f1c1dca9b2}
+      \strng{authornamehash}{0a4050fad21743530f9594f1c1dca9b2}
+      \strng{authorfullhash}{0a4050fad21743530f9594f1c1dca9b2}
+      \field{extraname}{1}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Journal of Political Economy}
+      \field{number}{1}
+      \field{title}{Chinese college admissions and school choice reforms: A theoretical analysis}
+      \field{volume}{125}
+      \field{year}{2017}
+      \field{pages}{99\bibrangedash 139}
+      \range{pages}{41}
+    \endentry
+    \entry{chen2019chinese}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=b6f25c2ea695f4385f6acab832194dfc}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Yan},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b175872bc940b3f8a6e80a36c4e03a1a}{%
+           family={Kesten},
+           familyi={K\bibinitperiod},
+           given={Onur},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{0a4050fad21743530f9594f1c1dca9b2}
+      \strng{fullhash}{0a4050fad21743530f9594f1c1dca9b2}
+      \strng{bibnamehash}{0a4050fad21743530f9594f1c1dca9b2}
+      \strng{authorbibnamehash}{0a4050fad21743530f9594f1c1dca9b2}
+      \strng{authornamehash}{0a4050fad21743530f9594f1c1dca9b2}
+      \strng{authorfullhash}{0a4050fad21743530f9594f1c1dca9b2}
+      \field{extraname}{2}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Games and Economic Behavior}
+      \field{title}{Chinese college admissions and school choice reforms: An experimental study}
+      \field{volume}{115}
+      \field{year}{2019}
+      \field{pages}{83\bibrangedash 100}
+      \range{pages}{18}
+    \endentry
+    \entry{chen2006school}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=b6f25c2ea695f4385f6acab832194dfc}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Yan},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8073f6091c1c9c41b6684fbd2d0112aa}{%
+           family={Sönmez},
+           familyi={S\bibinitperiod},
+           given={Tayfun},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{d602d6907c292c95d077cc89054de5ab}
+      \strng{fullhash}{d602d6907c292c95d077cc89054de5ab}
+      \strng{bibnamehash}{d602d6907c292c95d077cc89054de5ab}
+      \strng{authorbibnamehash}{d602d6907c292c95d077cc89054de5ab}
+      \strng{authornamehash}{d602d6907c292c95d077cc89054de5ab}
+      \strng{authorfullhash}{d602d6907c292c95d077cc89054de5ab}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Journal of Economic theory}
+      \field{number}{1}
+      \field{title}{School choice: an experimental study}
+      \field{volume}{127}
+      \field{year}{2006}
+      \field{pages}{202\bibrangedash 231}
+      \range{pages}{30}
+    \endentry
+    \entry{dougan2016responsive}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=4d0ae3c9d9a652df997a0ad49575c1a4}{%
+           family={Doğan},
+           familyi={D\bibinitperiod},
+           given={Battal},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{4d0ae3c9d9a652df997a0ad49575c1a4}
+      \strng{fullhash}{4d0ae3c9d9a652df997a0ad49575c1a4}
+      \strng{bibnamehash}{4d0ae3c9d9a652df997a0ad49575c1a4}
+      \strng{authorbibnamehash}{4d0ae3c9d9a652df997a0ad49575c1a4}
+      \strng{authornamehash}{4d0ae3c9d9a652df997a0ad49575c1a4}
+      \strng{authorfullhash}{4d0ae3c9d9a652df997a0ad49575c1a4}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Journal of Economic Theory}
+      \field{title}{Responsive affirmative action in school choice}
+      \field{volume}{165}
+      \field{year}{2016}
+      \field{pages}{69\bibrangedash 105}
+      \range{pages}{37}
+    \endentry
+    \entry{gale1962college}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=8921ac40fd1635d7d5bcf2cc6307b6f7}{%
+           family={Gale},
+           familyi={G\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=aa2b96ffd25f090ad898c0022f7efa12}{%
+           family={Shapley},
+           familyi={S\bibinitperiod},
+           given={Lloyd\bibnamedelima S},
+           giveni={L\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor \& Francis}%
+      }
+      \strng{namehash}{d01877860e3e471a138c0ecd3caa571c}
+      \strng{fullhash}{d01877860e3e471a138c0ecd3caa571c}
+      \strng{bibnamehash}{d01877860e3e471a138c0ecd3caa571c}
+      \strng{authorbibnamehash}{d01877860e3e471a138c0ecd3caa571c}
+      \strng{authornamehash}{d01877860e3e471a138c0ecd3caa571c}
+      \strng{authorfullhash}{d01877860e3e471a138c0ecd3caa571c}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{The American mathematical monthly}
+      \field{number}{1}
+      \field{title}{College admissions and the stability of marriage}
+      \field{volume}{69}
+      \field{year}{1962}
+      \field{pages}{9\bibrangedash 15}
+      \range{pages}{7}
+    \endentry
+    \entry{hafalir2013effective}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=f77b55469e3a993c08dbd463ef1987c1}{%
+           family={Hafalir},
+           familyi={H\bibinitperiod},
+           given={Isa\bibnamedelima E},
+           giveni={I\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=24e56423f62e67b301734d3b5c897fb3}{%
+           family={Yenmez},
+           familyi={Y\bibinitperiod},
+           given={M\bibnamedelima Bumin},
+           giveni={M\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=974bc793a6b6f7b152593d65fad1ccb8}{%
+           family={Yildirim},
+           familyi={Y\bibinitperiod},
+           given={Muhammed\bibnamedelima A},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{4aade2310c718f240338165ed2f87501}
+      \strng{fullhash}{4aade2310c718f240338165ed2f87501}
+      \strng{bibnamehash}{4aade2310c718f240338165ed2f87501}
+      \strng{authorbibnamehash}{4aade2310c718f240338165ed2f87501}
+      \strng{authornamehash}{4aade2310c718f240338165ed2f87501}
+      \strng{authorfullhash}{4aade2310c718f240338165ed2f87501}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Theoretical Economics}
+      \field{number}{2}
+      \field{title}{Effective affirmative action in school choice}
+      \field{volume}{8}
+      \field{year}{2013}
+      \field{pages}{325\bibrangedash 363}
+      \range{pages}{39}
+    \endentry
+    \entry{klijn2016affirmative}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=d5a0a9c7026073d1edc27e0e76508d0e}{%
+           family={Klijn},
+           familyi={K\bibinitperiod},
+           given={Flip},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5c118e8343f71c65fbe485330d659954}{%
+           family={Pais},
+           familyi={P\bibinitperiod},
+           given={Joana},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d71471210d932c2b08ee9fb6a3bb217e}{%
+           family={Vorsatz},
+           familyi={V\bibinitperiod},
+           given={Marc},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{948d006260970f60be45c5b5c81e7259}
+      \strng{fullhash}{948d006260970f60be45c5b5c81e7259}
+      \strng{bibnamehash}{948d006260970f60be45c5b5c81e7259}
+      \strng{authorbibnamehash}{948d006260970f60be45c5b5c81e7259}
+      \strng{authornamehash}{948d006260970f60be45c5b5c81e7259}
+      \strng{authorfullhash}{948d006260970f60be45c5b5c81e7259}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Economics Letters}
+      \field{title}{Affirmative action through minority reserves: An experimental study on school choice}
+      \field{volume}{139}
+      \field{year}{2016}
+      \field{pages}{72\bibrangedash 75}
+      \range{pages}{4}
+    \endentry
+    \entry{kojima2012school}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ddf47c1ddbef29d03d32f92073d2dc75}{%
+           family={Kojima},
+           familyi={K\bibinitperiod},
+           given={Fuhito},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{ddf47c1ddbef29d03d32f92073d2dc75}
+      \strng{fullhash}{ddf47c1ddbef29d03d32f92073d2dc75}
+      \strng{bibnamehash}{ddf47c1ddbef29d03d32f92073d2dc75}
+      \strng{authorbibnamehash}{ddf47c1ddbef29d03d32f92073d2dc75}
+      \strng{authornamehash}{ddf47c1ddbef29d03d32f92073d2dc75}
+      \strng{authorfullhash}{ddf47c1ddbef29d03d32f92073d2dc75}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Games and Economic Behavior}
+      \field{number}{2}
+      \field{title}{School choice: Impossibilities for affirmative action}
+      \field{volume}{75}
+      \field{year}{2012}
+      \field{pages}{685\bibrangedash 693}
+      \range{pages}{9}
+    \endentry
+    \entry{papai2000strategyproof}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f56411a78ec4395978c9ed3ece69001d}{%
+           family={Pápai},
+           familyi={P\bibinitperiod},
+           given={Szilvia},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{f56411a78ec4395978c9ed3ece69001d}
+      \strng{fullhash}{f56411a78ec4395978c9ed3ece69001d}
+      \strng{bibnamehash}{f56411a78ec4395978c9ed3ece69001d}
+      \strng{authorbibnamehash}{f56411a78ec4395978c9ed3ece69001d}
+      \strng{authornamehash}{f56411a78ec4395978c9ed3ece69001d}
+      \strng{authorfullhash}{f56411a78ec4395978c9ed3ece69001d}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Econometrica}
+      \field{number}{6}
+      \field{title}{Strategyproof assignment by hierarchical exchange}
+      \field{volume}{68}
+      \field{year}{2000}
+      \field{pages}{1403\bibrangedash 1433}
+      \range{pages}{31}
+    \endentry
+    \entry{pathak2008leveling}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=e75d96917751be05beac30ccd106dc84}{%
+           family={Pathak},
+           familyi={P\bibinitperiod},
+           given={Parag\bibnamedelima A},
+           giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8073f6091c1c9c41b6684fbd2d0112aa}{%
+           family={Sönmez},
+           familyi={S\bibinitperiod},
+           given={Tayfun},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {American Economic Association}%
+      }
+      \strng{namehash}{71ba6ffb3525341d860bc888754d928c}
+      \strng{fullhash}{71ba6ffb3525341d860bc888754d928c}
+      \strng{bibnamehash}{71ba6ffb3525341d860bc888754d928c}
+      \strng{authorbibnamehash}{71ba6ffb3525341d860bc888754d928c}
+      \strng{authornamehash}{71ba6ffb3525341d860bc888754d928c}
+      \strng{authorfullhash}{71ba6ffb3525341d860bc888754d928c}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{American Economic Review}
+      \field{number}{4}
+      \field{title}{Leveling the playing field: Sincere and sophisticated players in the Boston mechanism}
+      \field{volume}{98}
+      \field{year}{2008}
+      \field{pages}{1636\bibrangedash 1652}
+      \range{pages}{17}
+    \endentry
+    \entry{shapley1974cores}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=ee7807e1261ceb3dd6d2a113e90d3bae}{%
+           family={Shapley},
+           familyi={S\bibinitperiod},
+           given={Lloyd},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=53b56e112758774e6d4d4a73e80758c5}{%
+           family={Scarf},
+           familyi={S\bibinitperiod},
+           given={Herbert},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{1f880b79df413734661bf0f7e4a04f96}
+      \strng{fullhash}{1f880b79df413734661bf0f7e4a04f96}
+      \strng{bibnamehash}{1f880b79df413734661bf0f7e4a04f96}
+      \strng{authorbibnamehash}{1f880b79df413734661bf0f7e4a04f96}
+      \strng{authornamehash}{1f880b79df413734661bf0f7e4a04f96}
+      \strng{authorfullhash}{1f880b79df413734661bf0f7e4a04f96}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Journal of mathematical economics}
+      \field{number}{1}
+      \field{title}{On cores and indivisibility}
+      \field{volume}{1}
+      \field{year}{1974}
+      \field{pages}{23\bibrangedash 37}
+      \range{pages}{15}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
